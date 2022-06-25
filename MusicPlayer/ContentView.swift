@@ -175,7 +175,7 @@ struct ContentView: View {
                     LazyHStack {
                         ForEach(self.albums, id: \.self, content: {
                             album in
-                            AlbumArtView(album: album).onTapGesture {
+                            AlbumArtView(album: album, isWithText: true).onTapGesture {
                                 self.currentAlbum = album
                             }
                         })
@@ -186,7 +186,7 @@ struct ContentView: View {
                 LazyVStack {
                     ForEach((self.currentAlbum?.songs ?? self.albums.first?.songs) ?? self.songs, id: \.self, content: {
                         song in
-                        SongCellView(song: song)
+                        SongCellView(album: currentAlbum ?? albums.first!, song: song)
                     })
                 } // LAZYVSTACK
             } // SCROLLVIEW
@@ -199,6 +199,7 @@ struct ContentView: View {
 
 struct AlbumArtView: View {
     var album: Album
+    var isWithText: Bool
     var body: some View {
         ZStack (alignment: .bottom) {
             
@@ -210,22 +211,23 @@ struct AlbumArtView: View {
                 .padding()
                 .padding(.bottom, 35)
             
-            ZStack {
-                Image(album.image)
-                    .resizable()
-                    .frame(width: 200, height: 45, alignment: .center)
-                    .cornerRadius(10)
-                Blur(style: .regular)
-                Text("\(album.name)")
-                    .foregroundColor(.white)
-                    .font(.caption)
-                    .fontWeight(.bold)
-                    .shadow(radius: 2)
-                    .multilineTextAlignment(.center)
-            } // ZSTACK
-            .frame(width: 200, height: 45, alignment: .bottom)
-            .cornerRadius(10)
-            
+            if isWithText == true {
+                ZStack {
+                    Image(album.image)
+                        .resizable()
+                        .frame(width: 200, height: 45, alignment: .center)
+                        .cornerRadius(10)
+                    Blur(style: .regular)
+                    Text("\(album.name)")
+                        .foregroundColor(.white)
+                        .font(.caption)
+                        .fontWeight(.bold)
+                        .shadow(radius: 2)
+                        .multilineTextAlignment(.center)
+                } // ZSTACK
+                .frame(width: 200, height: 45, alignment: .bottom)
+                .cornerRadius(10)
+            }
             
         } // ZSTACK
         .frame(width: 200, alignment: .center)
@@ -236,34 +238,37 @@ struct AlbumArtView: View {
 }
 
 struct SongCellView: View {
+    var album: Album
     var song: Song
     var body: some View {
-        VStack {
-            HStack {
-                ZStack {
-                    Circle()
-                        .frame(width: 50, alignment: .center)
-                        .foregroundColor(/*@START_MENU_TOKEN@*/Color("WhiteBlack")/*@END_MENU_TOKEN@*/)
-                    Circle()
-                        .frame(width: 10, alignment: .center)
-                        .foregroundColor(.accentColor)
-                } // ZSTACK
-                .padding(.trailing, 2)
-                VStack (alignment: .leading) {
-                    Text(song.name)
-                        .padding(.bottom, 2)
-                    Text(song.singers)
-                        .font(.caption)
-                }
-                Spacer()
-                Text(song.time)
-            } // HSTACK
-            .padding(.vertical, 16)
-            .padding(.horizontal, 2)
-            Divider()
-                .padding(.horizontal, 16)
-        }
-        
+        NavigationLink(destination: PlayerView(album: album, song: song), label: {
+            VStack {
+                HStack {
+                    ZStack {
+                        Circle()
+                            .frame(width: 50, alignment: .center)
+                            .foregroundColor(/*@START_MENU_TOKEN@*/Color("WhiteBlack")/*@END_MENU_TOKEN@*/)
+                        Circle()
+                            .frame(width: 10, alignment: .center)
+                            .foregroundColor(.accentColor)
+                    } // ZSTACK
+                    .padding(.trailing, 2)
+                    VStack (alignment: .leading) {
+                        Text(song.name)
+                            .padding(.bottom, 2)
+                        Text(song.singers)
+                            .font(.caption)
+                    }
+                    Spacer()
+                    Text(song.time)
+                } // HSTACK
+                .padding(.vertical, 16)
+                .padding(.horizontal, 2)
+                Divider()
+                    .padding(.horizontal, 16)
+            } // VSTACK
+        })
+        .buttonStyle(PlainButtonStyle())
     }
 }
 
