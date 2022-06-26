@@ -8,6 +8,11 @@
 
 /* Begin PBXBuildFile section */
 		E09E51072867A4C700FAC7DF /* PlayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E09E51062867A4C700FAC7DF /* PlayerView.swift */; };
+		E09E51092867D36200FAC7DF /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = E09E51082867D36200FAC7DF /* GoogleService-Info.plist */; };
+		E09E510C2867D4C900FAC7DF /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = E09E510B2867D4C900FAC7DF /* FirebaseAnalytics */; };
+		E09E510E2867D4C900FAC7DF /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = E09E510D2867D4C900FAC7DF /* FirebaseFirestore */; };
+		E09E51102867D4C900FAC7DF /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = E09E510F2867D4C900FAC7DF /* FirebaseStorage */; };
+		E09E51122867D99E00FAC7DF /* Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = E09E51112867D99E00FAC7DF /* Data.swift */; };
 		E0C33FDB2867407C00E0ECD6 /* MusicPlayerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0C33FDA2867407C00E0ECD6 /* MusicPlayerApp.swift */; };
 		E0C33FDD2867407C00E0ECD6 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0C33FDC2867407C00E0ECD6 /* ContentView.swift */; };
 		E0C33FDF2867407F00E0ECD6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E0C33FDE2867407F00E0ECD6 /* Assets.xcassets */; };
@@ -17,7 +22,9 @@
 
 /* Begin PBXFileReference section */
 		E09E51062867A4C700FAC7DF /* PlayerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerView.swift; sourceTree = "<group>"; };
-		E0C33FD72867407C00E0ECD6 /* MusicPlayer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MusicPlayer.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		E09E51082867D36200FAC7DF /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		E09E51112867D99E00FAC7DF /* Data.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Data.swift; sourceTree = "<group>"; };
+		E0C33FD72867407C00E0ECD6 /* Sgadi Kirtans.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Sgadi Kirtans.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E0C33FDA2867407C00E0ECD6 /* MusicPlayerApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicPlayerApp.swift; sourceTree = "<group>"; };
 		E0C33FDC2867407C00E0ECD6 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		E0C33FDE2867407F00E0ECD6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -30,6 +37,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E09E510C2867D4C900FAC7DF /* FirebaseAnalytics in Frameworks */,
+				E09E510E2867D4C900FAC7DF /* FirebaseFirestore in Frameworks */,
+				E09E51102867D4C900FAC7DF /* FirebaseStorage in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -47,7 +57,7 @@
 		E0C33FD82867407C00E0ECD6 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				E0C33FD72867407C00E0ECD6 /* MusicPlayer.app */,
+				E0C33FD72867407C00E0ECD6 /* Sgadi Kirtans.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -60,7 +70,9 @@
 				E09E51062867A4C700FAC7DF /* PlayerView.swift */,
 				E0C33FE8286764D500E0ECD6 /* BlurEffect.swift */,
 				E0C33FDE2867407F00E0ECD6 /* Assets.xcassets */,
+				E09E51082867D36200FAC7DF /* GoogleService-Info.plist */,
 				E0C33FE02867407F00E0ECD6 /* Preview Content */,
+				E09E51112867D99E00FAC7DF /* Data.swift */,
 			);
 			path = MusicPlayer;
 			sourceTree = "<group>";
@@ -89,8 +101,13 @@
 			dependencies = (
 			);
 			name = MusicPlayer;
+			packageProductDependencies = (
+				E09E510B2867D4C900FAC7DF /* FirebaseAnalytics */,
+				E09E510D2867D4C900FAC7DF /* FirebaseFirestore */,
+				E09E510F2867D4C900FAC7DF /* FirebaseStorage */,
+			);
 			productName = MusicPlayer;
-			productReference = E0C33FD72867407C00E0ECD6 /* MusicPlayer.app */;
+			productReference = E0C33FD72867407C00E0ECD6 /* Sgadi Kirtans.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -117,6 +134,9 @@
 				Base,
 			);
 			mainGroup = E0C33FCE2867407C00E0ECD6;
+			packageReferences = (
+				E09E510A2867D4C900FAC7DF /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+			);
 			productRefGroup = E0C33FD82867407C00E0ECD6 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -133,6 +153,7 @@
 			files = (
 				E0C33FE22867407F00E0ECD6 /* Preview Assets.xcassets in Resources */,
 				E0C33FDF2867407F00E0ECD6 /* Assets.xcassets in Resources */,
+				E09E51092867D36200FAC7DF /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -144,6 +165,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E0C33FE9286764D500E0ECD6 /* BlurEffect.swift in Sources */,
+				E09E51122867D99E00FAC7DF /* Data.swift in Sources */,
 				E0C33FDD2867407C00E0ECD6 /* ContentView.swift in Sources */,
 				E0C33FDB2867407C00E0ECD6 /* MusicPlayerApp.swift in Sources */,
 				E09E51072867A4C700FAC7DF /* PlayerView.swift in Sources */,
@@ -281,6 +303,7 @@
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -288,8 +311,8 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.ketanpindoria.MusicPlayer;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_BUNDLE_IDENTIFIER = com.ketanpindoria.sgadikirtans;
+				PRODUCT_NAME = "Sgadi Kirtans";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -310,6 +333,7 @@
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -317,8 +341,8 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.ketanpindoria.MusicPlayer;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_BUNDLE_IDENTIFIER = com.ketanpindoria.sgadikirtans;
+				PRODUCT_NAME = "Sgadi Kirtans";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -347,6 +371,35 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		E09E510A2867D4C900FAC7DF /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 9.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		E09E510B2867D4C900FAC7DF /* FirebaseAnalytics */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = E09E510A2867D4C900FAC7DF /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAnalytics;
+		};
+		E09E510D2867D4C900FAC7DF /* FirebaseFirestore */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = E09E510A2867D4C900FAC7DF /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseFirestore;
+		};
+		E09E510F2867D4C900FAC7DF /* FirebaseStorage */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = E09E510A2867D4C900FAC7DF /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseStorage;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = E0C33FCF2867407C00E0ECD6 /* Project object */;
 }

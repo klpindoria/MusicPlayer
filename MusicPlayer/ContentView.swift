@@ -24,127 +24,7 @@ struct Song: Hashable {
 
 struct ContentView: View {
     
-    let albums = [Album(name: "Aaj Mare Orde Re",
-                        image: "Aaj Mare Orde Re",
-                        publisher: "Swamibapa Studio",
-                        songs:
-                            [Song(name: "Aaj Sakhi Aanandni Heli (4 Pad)",
-                                 singers: "Jayshree Shivram, Bandish",
-                                 time: "13:33"),
-                             Song(name: "Aaj Mare Orde Re (4 Pad)",
-                                  singers: "Mihir Jani",
-                                  time: "11:35"),
-                             Song(name: "Bhajyo Nahi Bhagwan (4 Pad)",
-                                  singers: "Bandish",
-                                  time: "13:33"),
-                             Song(name: "Sarve Sakhi Jivan (4 Pad)",
-                                  singers: "Arvind Parmar",
-                                  time: "07:57"),
-                             Song(name: "Ora Aavo Mara (4 Pad)",
-                                  singers: "Divyakumar, Sangeet Haldipur",
-                                  time: "15:52"),
-                             Song(name: "Mohanne Gamavane (4 Pad)",
-                                  singers: "Pankit Dabhi, Nayana Sharma",
-                                  time: "11:34")
-                            ]
-                ),
-                Album(name: "Sadbhav Amrut Heli",
-                    image: "Sadbhav Amrut Heli",
-                    publisher: "Swamibapa Studio",
-                    songs:
-                      [Song(name: "Album 2",
-                           singers: "Jayshree Shivram, Bandish",
-                           time: "13:33"),
-                       Song(name: "Aaj Mare Orde Re (4 Pad)",
-                            singers: "Mihir Jani",
-                            time: "11:35"),
-                       Song(name: "Bhajyo Nahi Bhagwan (4 Pad)",
-                            singers: "Bandish",
-                            time: "13:33"),
-                       Song(name: "Sarve Sakhi Jivan (4 Pad)",
-                            singers: "Arvind Parmar",
-                            time: "07:57"),
-                       Song(name: "Ora Aavo Mara (4 Pad)",
-                            singers: "Divyakumar, Sangeet Haldipur",
-                            time: "15:52"),
-                       Song(name: "Mohanne Gamavane (4 Pad)",
-                            singers: "Pankit Dabhi, Nayana Sharma",
-                            time: "11:34")
-                      ]
-                  ),
-                  Album(name: "Teri Krupa Hardam Rahe",
-                        image: "Teri Krupa Hardam Rahe",
-                        publisher: "Swamibapa Studio",
-                        songs:
-                          [Song(name: "Album 3",
-                               singers: "Jayshree Shivram, Bandish",
-                               time: "13:33"),
-                           Song(name: "Aaj Mare Orde Re (4 Pad)",
-                                singers: "Mihir Jani",
-                                time: "11:35"),
-                           Song(name: "Bhajyo Nahi Bhagwan (4 Pad)",
-                                singers: "Bandish",
-                                time: "13:33"),
-                           Song(name: "Sarve Sakhi Jivan (4 Pad)",
-                                singers: "Arvind Parmar",
-                                time: "07:57"),
-                           Song(name: "Ora Aavo Mara (4 Pad)",
-                                singers: "Divyakumar, Sangeet Haldipur",
-                                time: "15:52"),
-                           Song(name: "Mohanne Gamavane (4 Pad)",
-                                singers: "Pankit Dabhi, Nayana Sharma",
-                                time: "11:34")
-                          ]
-                  ),
-                  Album(name: "Karuna Karo He Hari",
-                        image: "Karuna Karo He Hari",
-                        publisher: "Swamibapa Studio",
-                        songs:
-                          [Song(name: "Album 4",
-                               singers: "Jayshree Shivram, Bandish",
-                               time: "13:33"),
-                           Song(name: "Aaj Mare Orde Re (4 Pad)",
-                                singers: "Mihir Jani",
-                                time: "11:35"),
-                           Song(name: "Bhajyo Nahi Bhagwan (4 Pad)",
-                                singers: "Bandish",
-                                time: "13:33"),
-                           Song(name: "Sarve Sakhi Jivan (4 Pad)",
-                                singers: "Arvind Parmar",
-                                time: "07:57"),
-                           Song(name: "Ora Aavo Mara (4 Pad)",
-                                singers: "Divyakumar, Sangeet Haldipur",
-                                time: "15:52"),
-                           Song(name: "Mohanne Gamavane (4 Pad)",
-                                singers: "Pankit Dabhi, Nayana Sharma",
-                                time: "11:34")
-                          ]
-                  ),
-                  Album(name: "Chittadama Chonti Gayo Re",
-                        image: "Chittadama Chonti Gayo Re",
-                        publisher: "Swamibapa Studio",
-                        songs:
-                          [Song(name: "Album 5",
-                               singers: "Jayshree Shivram, Bandish",
-                               time: "13:33"),
-                           Song(name: "Aaj Mare Orde Re (4 Pad)",
-                                singers: "Mihir Jani",
-                                time: "11:35"),
-                           Song(name: "Bhajyo Nahi Bhagwan (4 Pad)",
-                                singers: "Bandish",
-                                time: "13:33"),
-                           Song(name: "Sarve Sakhi Jivan (4 Pad)",
-                                singers: "Arvind Parmar",
-                                time: "07:57"),
-                           Song(name: "Ora Aavo Mara (4 Pad)",
-                                singers: "Divyakumar, Sangeet Haldipur",
-                                time: "15:52"),
-                           Song(name: "Mohanne Gamavane (4 Pad)",
-                                singers: "Pankit Dabhi, Nayana Sharma",
-                                time: "11:34")
-                          ]
-                    )
-                ] //ALBUMS
+    @ObservedObject var data: LocalData
     
     let songs = [Song(name: "Aaj Sakhi Aanandni Heli (4 Pad)",
                       singers: "Jayshree Static, Bandish",
@@ -173,21 +53,29 @@ struct ContentView: View {
             ScrollView {
                 ScrollView (.horizontal) {
                     LazyHStack {
-                        ForEach(self.albums, id: \.self, content: {
-                            album in
-                            AlbumArtView(album: album, isWithText: true).onTapGesture {
-                                self.currentAlbum = album
-                            }
-                        })
-                        .padding(.trailing, 8)
+                        if self.data.albums.first == nil {
+                            EmptyView()
+                        } else {
+                            ForEach(self.data.albums, id: \.self, content: {
+                                album in
+                                AlbumArtView(album: album, isWithText: true).onTapGesture {
+                                    self.currentAlbum = album
+                                }
+                            })
+                            .padding(.trailing, 8)
+                        }
                     } // LAZYHSTACK
                     .padding(.bottom)
                 } // SCROLLVIEW
                 LazyVStack {
-                    ForEach((self.currentAlbum?.songs ?? self.albums.first?.songs) ?? self.songs, id: \.self, content: {
-                        song in
-                        SongCellView(album: currentAlbum ?? albums.first!, song: song)
-                    })
+                    if self.data.albums.first == nil {
+                        EmptyView()
+                    } else {
+                        ForEach((self.currentAlbum?.songs ?? self.data.albums.first?.songs) ?? self.songs, id: \.self, content: {
+                            song in
+                            SongCellView(album: currentAlbum ?? self.data.albums.first!, song: song)
+                        })
+                    }
                 } // LAZYVSTACK
             } // SCROLLVIEW
             .navigationTitle("Kirtans")
@@ -247,7 +135,7 @@ struct SongCellView: View {
                     ZStack {
                         Circle()
                             .frame(width: 50, alignment: .center)
-                            .foregroundColor(/*@START_MENU_TOKEN@*/Color("WhiteBlack")/*@END_MENU_TOKEN@*/)
+                            .foregroundColor(Color("WhiteBlack"))
                         Circle()
                             .frame(width: 10, alignment: .center)
                             .foregroundColor(.accentColor)
@@ -269,11 +157,5 @@ struct SongCellView: View {
             } // VSTACK
         })
         .buttonStyle(PlainButtonStyle())
-    }
-}
-
-struct ContentView_Previews: PreviewProvider {
-    static var previews: some View {
-        ContentView()
     }
 }
