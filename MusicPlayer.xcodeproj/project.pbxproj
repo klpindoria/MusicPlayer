@@ -30,6 +30,7 @@
 		E0C33FDE2867407F00E0ECD6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E0C33FE12867407F00E0ECD6 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		E0C33FE8286764D500E0ECD6 /* BlurEffect.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlurEffect.swift; sourceTree = "<group>"; };
+		E0C9159F2867F4B0004D8B95 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -65,6 +66,7 @@
 		E0C33FD92867407C00E0ECD6 /* MusicPlayer */ = {
 			isa = PBXGroup;
 			children = (
+				E0C9159F2867F4B0004D8B95 /* Info.plist */,
 				E0C33FDA2867407C00E0ECD6 /* MusicPlayerApp.swift */,
 				E0C33FDC2867407C00E0ECD6 /* ContentView.swift */,
 				E09E51062867A4C700FAC7DF /* PlayerView.swift */,
@@ -300,6 +302,7 @@
 				DEVELOPMENT_TEAM = G434U4SWSY;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = MusicPlayer/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -330,6 +333,7 @@
 				DEVELOPMENT_TEAM = G434U4SWSY;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = MusicPlayer/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;

@@ -20,6 +20,7 @@ struct Song: Hashable {
     let name: String
     let singers: String
     let time: String
+    let file: String
 }
 
 struct ContentView: View {
@@ -28,23 +29,15 @@ struct ContentView: View {
     
     let songs = [Song(name: "Aaj Sakhi Aanandni Heli (4 Pad)",
                       singers: "Jayshree Static, Bandish",
-                      time: "13:33"),
+                      time: "13:33",
+                      file: "https://youtube.com/"
+                     ),
+                 
                   Song(name: "Aaj Mare Orde Re (4 Pad)",
                        singers: "Mihir Jani",
-                       time: "11:35"),
-                  Song(name: "Bhajyo Nahi Bhagwan (4 Pad)",
-                       singers: "Bandish",
-                       time: "13:33"),
-                  Song(name: "Sarve Sakhi Jivan (4 Pad)",
-                       singers: "Arvind Parmar",
-                       time: "07:57"),
-                  Song(name: "Ora Aavo Mara (4 Pad)",
-                       singers: "Divyakumar, Sangeet Haldipur",
-                       time: "15:52"),
-                  Song(name: "Mohanne Gamavane (4 Pad)",
-                       singers: "Pankit Dabhi, Nayana Sharma",
-                       time: "11:34")
-                 ] // SONGS
+                       time: "11:35",
+                       file: "https://youtube.com/"
+                      )]
     
     @State private var currentAlbum: Album?
     

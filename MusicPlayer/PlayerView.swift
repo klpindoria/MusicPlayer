@@ -5,11 +5,17 @@
 //  Created by Ketan Pindoria on 25/06/2022.
 //
 
+import Foundation
 import SwiftUI
+import Firebase
+import FirebaseStorage
+import AVFoundation
 
 struct PlayerView: View {
-    var album: Album
-    var song: Song
+    @State var album: Album
+    @State var song: Song
+    
+    @State var player = AVPlayer()
     
     @State var isPlaying: Bool = false
     
@@ -60,49 +66,60 @@ struct PlayerView: View {
             }
             
         }
+        .onAppear() {
+            self.playMusic()
+        }
+    }
+    
+    func playMusic() {
+        let storage = Storage.storage().reference(forURL: self.song.file)
+        storage.downloadURL { (url, error) in
+            if error != nil {
+                print(error)
+            } else {
+                do {
+                    try AVAudioSession.sharedInstance().setCategory(AVAudioSession.Category.playback)
+                }
+                catch {
+                    // report for an error
+                }
+                player = AVPlayer(playerItem: AVPlayerItem(url: url!))
+                player.play()
+                isPlaying = true
+            }
+        }
     }
     
     func playPause() {
         self.isPlaying.toggle()
+        if isPlaying == false {
+            player.pause()
+        } else {
+            player.play()
+        }
     }
     
     func next() {
-        
+        if let currentIndex = album.songs.firstIndex(of: song) {
+            if currentIndex == album.songs.count - 1 {
+                // do nothing
+            } else {
+                player.pause()
+                song = album.songs[currentIndex + 1]
+                self.playMusic()
+            }
+        }
     }
     
     func previous() {
-        
-    }
-}
-
-struct PlayerView_Previews: PreviewProvider {
-    static var previews: some View {
-        PlayerView(album: Album(name: "Aaj Mare Orde Re",
-                                image: "Aaj Mare Orde Re",
-                                publisher: "Swamibapa Studio",
-                                songs:
-                                    [Song(name: "Aaj Sakhi Aanandni Heli (4 Pad)",
-                                         singers: "Jayshree Shivram, Bandish",
-                                         time: "13:33"),
-                                     Song(name: "Aaj Mare Orde Re (4 Pad)",
-                                          singers: "Mihir Jani",
-                                          time: "11:35"),
-                                     Song(name: "Bhajyo Nahi Bhagwan (4 Pad)",
-                                          singers: "Bandish",
-                                          time: "13:33"),
-                                     Song(name: "Sarve Sakhi Jivan (4 Pad)",
-                                          singers: "Arvind Parmar",
-                                          time: "07:57"),
-                                     Song(name: "Ora Aavo Mara (4 Pad)",
-                                          singers: "Divyakumar, Sangeet Haldipur",
-                                          time: "15:52"),
-                                     Song(name: "Mohanne Gamavane (4 Pad)",
-                                          singers: "Pankit Dabhi, Nayana Sharma",
-                                          time: "11:34")
-                                    ]),
-                   song: Song(name: "Aaj Sakhi Aanandni Heli (4 Pad)",
-                                                                singers: "Jayshree Static, Bandish",
-                                                                time: "13:33"))
-        .preferredColorScheme(.light)
+        if let currentIndex = album.songs.firstIndex(of: song) {
+            if currentIndex == 0 {
+                // do nothing
+            } else {
+                player.pause()
+                song = album.songs[currentIndex - 1]
+                self.playMusic()
+            }
+        }
     }
 }
